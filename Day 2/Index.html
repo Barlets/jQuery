@@ -3,13 +3,32 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<style>
+	.emphasis { font-weight: bold }
 
-	</style>
+</style>
+
+<script>
+	$(function() {
+		$('li:first-child').addClass('emphasis');
+	});
+
+	// $(document).ready(function($) {
+	// 	$('li:first-child').addClass('emphasis');
+	// });
+
+</script>
+
 </head>
 <body>
 
+	<ul>
+		<li>hello</li>
+		<li>hello 2</li>
+		<li>hello 3</li>
+	</ul>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </body>
 </html>

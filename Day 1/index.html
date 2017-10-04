@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+
 	<style>
 		ul li {			color: red;		}
 		.emphasis { color: green; }
@@ -11,7 +12,7 @@
 
 </head>
 <body>
-scr
+
 	<ul>
 		<li>Hello</li>
 		<li>Hello 2</li>
@@ -21,9 +22,12 @@ scr
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<script>
-		jQuery('ul li').addClass('emphasis');
-		$('ul li').addClass('emphasis');
+		var list = jQuery('ul li').addClass('emphasis');
+		jQuery('ul li').css('color', 'blue');
 
+		$('ul li').addClass('emphasis');
+		console.log('list');
 	</script>
+
 </body>
 </html>
