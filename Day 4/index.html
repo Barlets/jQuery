@@ -3,15 +3,59 @@
 <head>
 	<meta charset="UTF-8">
 	<title>jQuery Events</title>
+	<link rel="stylesheet" href="day.css">
+
+
 	<style>
 
 	</style>
 </head>
 <body>
+<h1>My Website</h1>
+
+<!-- <button>Day</button>
+<button>Night</button> -->
+
+<button data-file='day'>Day</button>
+<button data-file='night'>Night</button>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
 
+		// (function(){
+		// 	$('button').click(function() {
+		// 		var link = $('link'),
+		// 		var $this = $(this);
+		// 	// console.log($(this));
+		// 	// $(this).text('Changed');
+		// 	// var uls = $(this);
+		// 	// uls.click();
+		// 	// uls.find('li:first-child').text();
+
+		// 	//var stylesheet = $(this).text().toLowerCase();
+		// 	//var stylesheet = $(this).attr('data-file');
+		// 	var stylesheet = $(this).data('file');
+		// 	console.log(stylesheet);
+		// 	$(this).siblings('button').removeAttr('disabled');
+		// 	link.attr('href', stylesheet + '.css');
+		// 	$this.attr('disabled', 'disabled');
+		// });
+		// })();
+
+		(function(){
+		var link = $('link');
+		$('button').on('click', function() {
+			var $this = $(this), stylesheet = $this.data('file');
+
+			link.attr('href', stylesheet + '.css');
+
+			$this
+				.siblings('button')
+					.removeAttr('disabled')
+					.end()
+						.attr('disabled', 'disabled');
+		});
+		})();
 
 	</script>
 </body>
