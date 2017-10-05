@@ -5,9 +5,15 @@
 	<title>Document</title>
 
 	<style>
+	/*li {	color: black;	}
 
-
+/*	ul.emphasis > li {
+		color: red;
+		}*/
+		/*.emphasis {	color: green; }*/
+		.container {	color: green; }
 	</style>
+
 </head>
 <body>
 
@@ -15,22 +21,44 @@
 		<h1>Welcome to my Website</h1>
 		<p>
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat.
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.
 		</p>
 
-		<ul class="emplhasis">
-			<li>item</li>
-			<li>item 2</li>
-			<li>item 3</li>
-		</ul>
+		<div class="container">
+			<ul class="emphasis">
+				<li>item</li>
+				<li>item 2</li>
+				<li>item 3</li>
+				<li>item 4</li>
+				<li>item 5</li>
+				<li>
+					<ul>
+						<li>Hello from the nest.</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
 	</div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
+		//$('ul.emphasis').children('li').css('color', 'green');
+		// $('ul.emphasis').find('li').css('color', 'green');
+		// $('ul.emphasis').find('li:first-child').addClass('emphasis');
+		// $('ul.emphasis').children('li:first').addClass('emphasis');
+		// $('ul.emphasis').children('li').first().addClass('emphasis');
 
-
+		// $('ul.emphasis').children('li:nth-child(2)').text('Added with jQuery');
+		// $('ul.emphasis').children('li').eq(0).next().text('Added with jQuery');
+		// $('ul.emphasis').children('li').eq(3).prev().text('Added with jQuery');
+		// $('li').parent('ul').removeClass('emphasis');
+		// $('li').parents('div.container').removeClass('container');
+		// $('li').closest('div.container').removeClass('container');
+		// console.log($('ul').parents('.container'));
+		// console.log($('ul').closest('.container'));
 	</script>
 
 </body>
