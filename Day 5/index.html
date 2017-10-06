@@ -7,14 +7,48 @@
 </head>
 <body>
 
+	<dl>
+		<dt>What are your hours?</dt>
+		<dd>We are open 24/7.</dd>
+
+		<dt>What are your hours?</dt>
+		<dd>We are open 24/7.</dd>
+
+		<dt>What are your hours?</dt>
+		<dd>We are open 24/7.</dd>
+
+		<dt>What are your hours?</dt>
+		<dd>We are open 24/7.</dd>
+
+		<dt>What are your hours?</dt>
+		<dd>We are open 24/7.</dd>
+
+	</dl>
 
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
 
-<script>
+		(function(){
 
+			//dd.hide();
+			//dd.addClass('hide');
 
-</script>
+			$('dd').filter(':nth-child(n+4)').addClass('hide');
+			$('dl').on('mouseenter', 'dt', function() {
+				// $(this).next().siblings('dd').hide();
+				// $(this).next().show();
+
+				$(this)
+					.next()
+						.slideDown(200)
+						.siblings('dd')
+							.slideUp(200)();
+			});
+
+		})();
+
+	</script>
 </body>
 </html>
