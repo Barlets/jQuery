@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Appending Content</title>
+	<link rel="stylesheet" href="style.css"></head>
+	<body>
+
+		<article>
+
+			<h1>My awesome post</h1>
+
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum ea accusamus enim hic, itaque eius quibusdam maxime veritatis maiores, ipsum porro beatae. Quisquam deleniti maxime velit tempora, molestias corrupti iusto!
+			</p>
+			<p>
+				<span class="co">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span> Ex iure officia, totam fugiat doloribus corrupti, velit a dolorum unde atque reprehenderit, et eaque? Similique consequuntur a vel quos accusamus, error!
+
+			</p>
+		</article>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+		<script>
+
+			// (function(){
+			// 	$('article').append('Hello from JavaScript (append)');
+			// 	$('article').prepend('Hello from JavaScript (prepend)');
+
+			// 	$('h1').after('Hello from JavaScript (after)');
+			// 	$('p').first().before('Hello from JavaScript (.first().before())');
+
+			// 	var txt = 'Hello from JavaScript';
+			// 	$('<h2></h2>', {
+			// 		text: (txt),
+			// 		class: 'myClass'
+			// 	}).prependTo('article');
+
+			// 	$('<h2></h2>', {
+			// 		text: (txt),
+			// 		class: 'myClass'
+			// 	}).insertAfter('article');
+
+			// 	$('<h3></h3>', {
+			// 		text: (txt + "!!!!"),
+			// 		class: 'myClass'
+			// 	}).insertBefore('article');
+
+			// 	$('h1').appendTo('article');
+
+			// 	$('p').eq(0).after( $('h1') );
+
+			// 	$('p').eq(0).after(function() {
+			// 		return $(this).prev();
+			// 	});
+
+			// })();
+
+			(function(){
+				var co = $('article').find('span.co').each(function() {
+					var $this = $(this);
+
+					$('<blockquote></blockquote>', {
+						class: 'co',
+						text: $this.text()
+					}).prependTo( $this.closest('p') );
+						//$(this).closest('p').prepend('Hi there ');
+					});
+			})();
+
+		</script>
+	</body>
+	</html>
