@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<article>
+		<h1>My awesome post</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed ipsa mollitia, nesciunt excepturi culpa alias ad voluptate itaque officia illum veniam nihil, deleniti nam, ea dolorem molestiae consectetur quod veritatis?</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed ipsa mollitia, nesciunt excepturi culpa alias ad voluptate itaque officia illum veniam nihil, deleniti nam, ea dolorem molestiae consectetur quod veritatis?</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed ipsa mollitia, nesciunt excepturi culpa alias ad voluptate itaque officia illum veniam nihil, deleniti nam, ea dolorem molestiae consectetur quod veritatis?</p>
+	</article>
+
+	<div id="contact">
+		<h2>Contact Me</h2>
+		<form action="#">
+			<ul>
+				<li>
+					<label for="name">Name: </label>
+					<input name="name" id="name">
+				</li>
+				<li>
+					<label for="email">Email Address: </label>
+					<input name="email" id="email">
+				</li>
+				<li>
+					<label for="comments">What's up?</label>
+					<textarea name="comments" id="comments" cols="30" rows="5"></textarea>
+				</li>
+				<li>
+					<input type="submit" value="Submit">
+				</li>
+			</ul>
+		</form>
+	</div>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script>
+
+		// (function(){
+
+		// 	$('html').addClass('js');
+
+		// 	var contactForm = {
+
+		// 		container: $('#contact'),
+
+		// 		init: function() {
+
+		// 			$('<button></button>', {
+		// 				text: 'Contact me'
+		// 			})
+		// 			.insertAfter('article:first')
+		// 			.on('click', this.show);
+		// 		},
+
+		// 		show: function() {
+		// 			contactForm.close.call(contactForm.container);
+		// 			contactForm.container.show();
+		// 		},
+
+		// 		close: function() {
+		// 			var $this = $(this);
+		// 			$('<span class=close>X</span>')
+		// 			.prependTo(this)
+		// 			.on('click', function() {
+		// 				$this.hide();
+		// 			})
+		// 		}
+
+		// 	};
+
+		// 	contactForm.init();
+
+		// })();
+
+		(function(){
+
+			$('html').addClass('js');
+
+			var contactForm = {
+
+				container: $('#contact'),
+
+				config: {
+					effect: 'slideToggle',
+					speed: 200
+				},
+
+				init: function(config) {
+
+					$.extend(this.config, config);
+
+					$('<button></button>', {
+						text: 'Contact me'
+					})
+					.insertAfter('article:first')
+					.on('click', this.show);
+				},
+
+				show: function() {
+					var cf = contactForm,
+					container = cf.container,
+					config = cf.config;
+
+					if ( container.is(':hidden') ) {
+						cf.close.call(container);
+						container[config.effect](config.speed);
+					}
+
+				},
+
+				close: function() {
+					var $this = $(this);
+
+					if ( this.find('span.close').length ) return;
+
+					$('<span class=close>X</span>')
+					.prependTo(this)
+					.on('click', function() {
+						$this[contactForm.config.effect](contactForm.config.speed);
+					})
+				}
+
+			};
+
+			contactForm.init({
+				effect: 'fadeToggle',
+				speed: 800
+			});
+
+		})();
+
+	</script>
+</body>
+</html>
