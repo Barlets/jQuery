@@ -13,10 +13,26 @@
 	</div>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<script>
+		$('div.content').hide();
 
+		// console.log($.fx.speeds);
+
+		// $.fx.speeds._default = 2000;
+		$.fx.speeds.tortoise = 6000;
+
+
+		var config = {
+			speed: 500
+		}
+
+		$('h1').on('click', function () {
+			// $(this).next().slideDown(_default);
+			// $(this).next().slideDown(config.speed);
+			$(this).next().slideDown('tortoise');
+		})
 
 	</script>
 
