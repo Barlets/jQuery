@@ -32,13 +32,47 @@ body {
 			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 		</p>
 	</div>
-
+	<p><button>FadeSlideToggle</button></p>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
 	<script>
 
+		(function(){
 
+			var box = $('div.box');
+
+			// $.fn.FadeSlideToggle = function (speed, fn) {
+			// 	return $(this).animate({
+			// 		'height' : 'toggle',
+			// 		'opacity' : 'toggle'
+			// 	}, speed || 400, function() {
+			// 		// console.log('complete');
+			// 		fn();
+			// 	} );
+			// };
+
+			$.fn.FadeSlideToggle = function (speed, fn) {
+				if ( $.isFunction(fn) ){
+					console.log('is a function');
+				} else {
+					console.log('in undefined');
+				}
+
+				return $(this).animate({
+					'height' : 'toggle',
+					'opacity' : 'toggle'
+				}, speed || 400, function(){
+					$.isFunction(fn) && fn.call(this);
+				});
+			};
+
+			$('button').on('click', function(){
+				box.FadeSlideToggle(500, function() {
+					console.log('finished');
+				});
+			});
+		})();
 
 	</script>
 
