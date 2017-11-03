@@ -37,6 +37,15 @@ body {
 
 	<script>
 
+		(function(){
+			var container = $('div.slider').css('overflow', 'hidden').children('ul');
+			var slider = new Slider ( $('div.slider ul'), $('#slider-nav') );
+
+			slider.nav.find('button').on('click', function() {
+				slider.setCurrent( $(this).data('dir') );
+				slider.transition();
+			})
+		})();
 
 	</script>
 
