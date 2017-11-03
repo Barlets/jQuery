@@ -1,5 +1,5 @@
 #slider-nav {
-	/*display: none;*/
+	display: none;
 	margin-top: 1em;
 }
 #slider-nav button {
@@ -14,7 +14,7 @@
 	overflow: scroll;
 }
 .slider ul {
-	width: 1000px;
+	width: 10000px;
 	list-style: none;
 }
 .slider li {
