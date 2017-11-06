@@ -4,14 +4,22 @@
 	<meta charset="UTF-8">
 	<title>Mustache</title>
 </head>
+
 <body>
 
 	<ul class="tweets">
 		<script id='template' type='text/x-handlebars-template'>
+			{{#each this}}
 			<li>
-				{{thumbnail}}
-				<p>{{tweet}}</p>
+				<h2> {{fullName author}} </h2>
+				<p>{{{tweet}}</p>
+				{{#if quote}}
+				<h5>{{quote}}</h5>
+				{{else}}
+				<h5>Author does not have a quote.</h5>
+				{{/if}}
 			</li>
+			{{/each}}
 		</script>
 	</ul>
 
@@ -22,6 +30,27 @@
 	<script>
 
 		(function(){
+			var context = [
+			{
+				author: {first: 'Jeffrey', last: 'Way', age: 27},
+				tweet: '30 Days to Learn jQuery Rocks',
+				quote: 'Never ever, ever, ever give up.'
+			},
+			{
+				author: {first: 'John', last: 'Doe', age: 45},
+				tweet: '<strong>30 Days</strong> to Learn jQuery Rocks',
+
+			},
+			];
+
+			Handlebars.registerHelper('fullName', function( author ) {
+				return author.first + ' ' + author.last + ' - ' + author.age;
+			})
+
+			var template = Handlebars.compile( $('#template').html() );
+
+			$('ul.tweets').append( template(context) );
+
 
 		})();
 
