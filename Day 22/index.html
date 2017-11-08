@@ -5,12 +5,46 @@
 	<title>Custom Evets</title>
 </head>
 <body>
-
+	<h1>Hi there</h1>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 
 	<script>
 
+		// $('body').on('app/x', function() {
+		// 	console.log('click');
+		// });
+
+		// $('body').trigger('app/x');
+
+		(function( $ ){
+			var o = $ ({ });
+			$.each({
+				trigger: 'publish',
+				on: 'subscribe',
+				off: 'unsubscribe'
+			}, function ( key, val ){
+				jQuery[val] = function() {
+					o[key].apply( o, arguments );
+				};
+			});
+
+		})( jQuery );
+
+		var url = 'https://gist.githubusercontent.com/adamarthurryan/3d0fa8db6d8c64add82b/raw/450d85cb569447c934ffa3df79e953bb2f25c272/justin-beiber.json';
+
+		$.getJSON( url, function(results) { //publish
+			$.publish( 'twitter/results', results );
+			//$(document).trigger('twitter/results', results);
+		});
+
+		$.subscribe( 'twitter/results', function( e, results) {
+			$('body').html(
+				$.map( results.results, function( obj, index ) {
+					return '<li>' + obj.text + '</li>';
+				}).join('')
+				);
+		});
 
 	</script>
 
