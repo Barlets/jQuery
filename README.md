@@ -3,8 +3,11 @@
 https://code.tutsplus.com/courses/30-days-to-learn-jquery
 
 Day 1: Hello jQuery https://goo.gl/Wrq6wN
+
 Day 2: Not So Fast https://goo.gl/xyxVLD
+
 Day 3: The Basics of Querying the Dom https://goo.gl/z8T2Di
+
 Day 4: Events https://goo.gl/Z4Yu5Q
 Day 5: Events https://goo.gl/cQUiGf
 Day 7: Creating and Appending Content to DOM https://goo.gl/xypFVN
