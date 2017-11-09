@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AJAX: POST</title>
+</head>
+<body>
+
+<h1>Something to Save</h1>
+<form action="#">
+	<p>Имя: <input type="text" name="name"></p>
+	<p>Msg: <textarea name="content" id="content" cols="30" rows="10"></textarea></p>
+	<p><button type="submit">Save</button></p>
+</form>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+	<script>
+
+		$.post('load.php', function(data) {
+			if ( data ) {
+				$('#content').val( data );
+			}
+		});
+
+		//siten for click
+		$('form').on('submit', function( e ) {
+			// console.log( $(this).serialize() );
+			// console.log( $(this).find('#content').val() );
+
+			$.post('save.php', $(this).serialize(), function(data){
+				alert('saved');
+			});
+			//disable default action
+			e.preventDefault();
+		})
+
+		//grab textarea content
+
+		//post content to the script, and save
+
+	</script>
+
+</body>
+</html>

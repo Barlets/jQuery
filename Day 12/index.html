@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style>
+
+.box {
+	width: 400px;
+	background: green;
+	padding: 2em;
+	position: relative;
+	transition: border-radius 1s;
+}
+.rounded {
+	border-radius: 50px
+}
+
+</style>
+<body>
+	<div class="box">
+		<h2>Some content here</h2>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+			cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+			proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		</p>
+	</div>
+	<p><button>Center</button></p>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+	<script>
+
+		// (function() {
+		// 	var box = $('div.box'),
+		// 	fontSize = parseInt( box.css('font-size'), 10 );
+
+		// 	$('button').on('click', function() {
+		// 		box.css('font-size', fontSize += 5);
+		// 	})
+		// })();
+
+		// (function() {
+		// 	var box = $('div.box');
+
+		// 	$('button').on('click', function() {
+		// 		box.css('font-size', '+=5');
+		// 	});
+		// })();
+
+		(function() {
+			var box = $('div.box'),
+			// winWidth = $(window).width() / 2 -box.width() / 2;
+			w = $(window).width() / 2 - box.outerWidth() / 2,
+			h = $(window).height() / 2 - box.outerHeight() / 2;
+
+			$('button').on('click', function() {
+				// box.css({
+				// box.animate({
+				// 	'fontSize': '+=2',
+				// 	'width' : '+=300px'
+				// }, 500, 'swing', function(){
+				// 	console.log('completed');
+				// });
+
+
+				// box.animate({
+				// 	'fontSize' : '+=5',
+				// }, {
+				// 	duration: 500,
+				// 	complete: function () {
+				// 		console.log('completed')
+				// 	},
+				// 	step: function () {
+				// 		console.log('The current font-size is: ' + $(this).css('fontSize'));
+				// 	},
+				// });
+
+
+				// box
+				// .animate({
+				// 	'fontSize' : '+=5',
+				// 	//'top' :500
+				// }, { duration: 500 })
+				// .animate({
+				// 	'fontSize' : '+=10',
+				// 	'top' : 500
+				// }, {
+				// 	duration: 3000,
+				// 	queue: true
+				// });
+
+				// box.css({'left' : winWidth, 'position' : 'absolute'});
+
+				// box
+				// .animate({
+				// 	'left' : w,
+				// 	'position' : 'absolute'
+				// }, 200)
+				// .animate({
+				// 	'top' : h
+				// }, { duration: 1000, queue: false });
+
+
+				// box.animate({
+				// 	'borderRadius' : 50
+				// });
+
+				box.addClass('rounded');
+
+			});
+		})();
+
+	</script>
+
+</body>
+</html>

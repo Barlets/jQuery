@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Custom Effect Methods</title>
+</head>
+
+<style>
+p {margin-top: 0; }
+</style>
+
+<body>
+
+	<h1>Click me!</h1>
+	<div class="content">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione ducimus voluptatum, repudiandae accusantium consequatur accusamus provident nulla! Delectus eaque, id earum blanditiis totam. Repellendus ut iste eos illo alias, deleniti.</p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores optio iste atque, architecto itaque tempore nesciunt iusto molestias corporis illum labore dicta vero, possimus ratione repellendus veniam quidem perferendis. Labore?</p>
+	</div>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+	<script>
+
+		(function(){
+			var content = $('div.content').hide();
+
+			jQuery.fn.flash = function( speed, easing, callback ) {
+				var $this = $(this);
+
+				$this.slideDown(1000, function() {
+					$this.delay(1000).slideUp(500);
+				});
+			};
+
+			$('h1').on('click', function(){
+			// $(this).next('div.content').flash();
+			content.flash();
+		})
+		})();
+
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jQuery Deferreds</title>
+</head>
+<body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+	<script>
+
+		var myVar;
+
+		var setVal = function() {
+			var deferred = new $.Deferred();
+
+			setTimeout(function() {
+				myVar = 'myValue';
+				deferred.resolve();
+				// deferred.reject();
+
+			}, 2000);
+
+			return deferred.promise();
+		};
+
+		// setVal().done(function() {
+		// 	console.log('all done: ' + myVar);
+		// })
+
+		// setVal().fail(function() {
+		// 	console.log('all done: ' + myVar);
+		// })
+
+		// setVal().always(function() {
+		// 	console.log('all done: ' + myVar);
+		// })
+
+		// setVal().done(function() {
+		// 	console.log('all done: ' + myVar);
+		// }).fail(function () {
+		// 	console.log('failed');
+		// });
+
+		setVal().then(
+			function() {
+				console.log('all done: ' + myVar);
+			},
+			function () {
+				console.log('failed');
+			}
+			);
+
+		</script>
+
+	</body>
+	</html>
