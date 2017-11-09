@@ -10,11 +10,49 @@
 
 	<script>
 
-		setTemeout(function(){
+		var myVar;
 
-		})
+		var setVal = function() {
+			var deferred = new $.Deferred();
 
-	</script>
+			setTimeout(function() {
+				myVar = 'myValue';
+				deferred.resolve();
+				// deferred.reject();
 
-</body>
-</html>
+			}, 2000);
+
+			return deferred.promise();
+		};
+
+		// setVal().done(function() {
+		// 	console.log('all done: ' + myVar);
+		// })
+
+		// setVal().fail(function() {
+		// 	console.log('all done: ' + myVar);
+		// })
+
+		// setVal().always(function() {
+		// 	console.log('all done: ' + myVar);
+		// })
+
+		// setVal().done(function() {
+		// 	console.log('all done: ' + myVar);
+		// }).fail(function () {
+		// 	console.log('failed');
+		// });
+
+		setVal().then(
+			function() {
+				console.log('all done: ' + myVar);
+			},
+			function () {
+				console.log('failed');
+			}
+			);
+
+		</script>
+
+	</body>
+	</html>
